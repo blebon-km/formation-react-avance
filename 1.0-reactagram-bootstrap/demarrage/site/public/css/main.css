@@ -1,0 +1,265 @@
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'Billabong';
+	src: url('../fonts/Billabong.eot');
+	src: url('../fonts/Billabong.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/Billabong.woff2') format('woff2'),
+	url('../fonts/Billabong.woff') format('woff'),
+	url('../fonts/Billabong.ttf') format('truetype'),
+	url('../fonts/Billabong.svg#Billabong') format('svg');
+}
+
+html,
+body {
+	background-color: #fafafa;
+	color: #000;
+}
+img {
+	max-width: 100%;
+}
+.navbar-dark {
+	border-bottom: 1px solid rgba(0,0,0,.0975);
+	background: #fff !important;
+}
+.navbar-dark .navbar-brand {
+	/* color: #000 !important; */
+	color: #4ad5fe !important;
+	font-size: 40px;
+	font-family: Billabong;
+	line-height: 40px;
+	filter: brightness(0);
+	transition: all .15s ease-out;
+}
+.navbar-dark .navbar-brand:hover {
+	filter: brightness(100%);
+}
+/* .navbar-dark .navbar-brand:hover {
+	background-image: linear-gradient(120deg, hsl(0,100%,50%), hsl(30,100%,50%), hsl(60,100%,50%), hsl(90,100%,50%), hsl(120,100%,50%), hsl(150,100%,50%), hsl(180,100%,50%), hsl(210,100%,50%), hsl(240,100%,50%), hsl(270,100%,50%), hsl(300,100%,50%), hsl(330,100%,50%), hsl(360,100%,50%));
+	background-position: 0 0;
+	background-size: 95% 100%;
+	background-repeat: repeat;
+	animation: stripes 10s linear infinite;
+
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+}
+@keyframes stripes {
+	0% {
+		background-position: 0%;
+	}
+	100% {
+		background-position: 50000%;
+	}
+}
+
+*/
+
+.navbar-dark .navbar-nav .nav-link {
+	color: black;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+	color: rgba(0,0,0,0.6);
+}
+
+.navbar-brand:before {
+	content: ' ';
+	display: block;
+	float: left;
+	margin-right: 10px;
+	padding-right: 45px;
+	width: 40px;
+	height: 40px;
+	border-right: 1px solid #4ad5fe;
+	background: url(../images/logo.svg) no-repeat;
+	background-position: center center;
+	background-size: 30px 30px;
+}
+
+.post-list form {
+	justify-content: center;
+	padding: 15px 15px 15px 25px;
+}
+.post-list form input[type=text] {
+	position: relative;
+	left: 10px;
+	margin: 0 !important;
+	padding-right: 35px;
+	width: auto;
+	border: solid 1px #dbdbdb;
+	border-radius: 3px;
+	background: #fafafa;
+	color: #999;
+}
+.post-list form input[type=text]:hover {
+	border-color: #262626;
+}
+.post-list form input[type=text]:focus {
+	border-color: #262626;
+	background: white;
+	color: #262626;
+}
+
+.post-list form button {
+	position: relative;
+	left: -18px;
+	padding: 0;
+	width: 20px;
+	height: 20px;
+	border: none;
+	border-radius: 0;
+	background-color: transparent;
+	background-image: url('../images/search.svg');
+	background-size: contain;
+	font-size: 0;
+	opacity: .3;
+	transition: all .2s ease-out;
+}
+.post-list form button:hover {
+	background-color: transparent;
+	opacity: .8;
+}
+.post-list form button:focus, .post-list form button:not(:disabled):not(.disabled):active:focus, .post-list form button:not(:disabled):not(.disabled):active {
+	box-shadow: none;
+	background-color:transparent;
+	border: none;
+}
+.form-control:focus {
+	box-shadow: none;
+}
+.post-list {
+	min-height: 400px;
+}
+.post-list ul {
+	display: flex;
+	flex-wrap: wrap;
+	list-style-type: none;
+	transition: all .3s ease-out;
+}
+.post-list.is-loading ul {
+	opacity: .5;
+	filter: blur(3px);
+}
+.post-list ul li {
+	position: relative;
+	width: 33%;
+	height: 20vw;
+}
+.post-list ul li a {
+	display: inline-block;
+	padding: 14px;
+	width: 100%;
+	height: 100%;
+}
+.post-list ul li a:hover:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 20px;
+	height: 20px;
+	transform: translate(-50%, -50%);
+	background-image: url('../images/heart.svg');
+	background-size: contain;
+}
+
+.post-list ul li a article {
+	transition: all .15s ease-out;
+	width: 100%;
+	height: 100%;
+	background-position: center center;
+	background-size: cover;
+}
+
+.post-list ul li a:hover article {
+	filter: brightness(70%);
+}
+
+.post-detail, .post-form {
+	margin: 50px auto 100px;
+	width: 70%;
+	min-height: 200px;
+	min-width: 200px;
+	border: 1px solid #e6e6e6;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	background-color: #fff;
+}
+.post-detail > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: stretch;
+}
+.post-detail > div .picture-container {
+	width: 100%;
+}
+.post-detail > div .infos-container {
+	padding: 20px;
+	min-width: 300px;
+}
+.post-detail > div .infos-container time {
+	color: #999;
+	font-size: 12px;
+}
+
+.is-loading {
+	position: relative;
+}
+.is-loading:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 30px;
+	height: 30px;
+	transform: translate(-50%,-50%);
+	transform-origin: center;
+	border: 1px #000 solid;
+	border-bottom-color: transparent;
+	border-radius: 50%;
+	animation: spin-centered .5s infinite linear;
+}
+@keyframes spin-centered {
+	0% {
+		transform: translate(-50%,-50%) rotate(0deg);
+	}
+	100% {
+		transform: translate(-50%,-50%) rotate(360deg);
+	}
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.7);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.overlay .modal-wrapper {
+	width: 100%;
+}
+
+.overlay .modal-wrapper > * {
+	cursor: default;
+}
+
+.comment-list {
+	list-style-type: none;
+	font-size: 12px;
+	padding: 0;
+}
+
+.comment-list p {
+	margin-bottom: 5px;
+}
+
+.post-form {
+	padding: 20px;
+}

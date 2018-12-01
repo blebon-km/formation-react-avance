@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostList should render correctly 1`] = `
+<section
+  className="post-list is-loading"
+>
+  <div
+    className="search-form"
+  >
+    <form
+      className="form-inline"
+      onSubmit={[Function]}
+    >
+      <input
+        className="form-control mr-sm-2"
+        name="search"
+        placeholder="hashtag"
+        type="text"
+      />
+      <button
+        className="btn btn-secondary"
+        type="submit"
+      >
+        Rechercher
+      </button>
+    </form>
+  </div>
+  <ul />
+</section>
+`;
+
+exports[`PostList should render correctly 2`] = `
+<section
+  className="post-list "
+>
+  <div
+    className="search-form"
+  >
+    <form
+      className="form-inline"
+      onSubmit={[Function]}
+    >
+      <input
+        className="form-control mr-sm-2"
+        name="search"
+        placeholder="hashtag"
+        type="text"
+      />
+      <button
+        className="btn btn-secondary"
+        type="submit"
+      >
+        Rechercher
+      </button>
+    </form>
+  </div>
+  <ul />
+</section>
+`;
+
+exports[`PostList should render correctly 3`] = `
+<section
+  className="post-list "
+>
+  <div
+    className="search-form"
+  >
+    <form
+      className="form-inline"
+      onSubmit={[Function]}
+    >
+      <input
+        className="form-control mr-sm-2"
+        name="search"
+        placeholder="hashtag"
+        type="text"
+      />
+      <button
+        className="btn btn-secondary"
+        type="submit"
+      >
+        Rechercher
+      </button>
+    </form>
+  </div>
+  <ul>
+    <li>
+      <a
+        href="/posts/42"
+        onClick={[Function]}
+      >
+        <article
+          style={
+            Object {
+              "backgroundImage": "url(http://localhost/uploads/pictures/picture1.jpg)",
+            }
+          }
+        />
+      </a>
+    </li>
+    <li>
+      <a
+        href="/posts/72"
+        onClick={[Function]}
+      >
+        <article
+          style={
+            Object {
+              "backgroundImage": "url(http://localhost/uploads/pictures/picture2.jpg)",
+            }
+          }
+        />
+      </a>
+    </li>
+    <li>
+      <a
+        href="/posts/94"
+        onClick={[Function]}
+      >
+        <article
+          style={
+            Object {
+              "backgroundImage": "url(http://localhost/uploads/pictures/picture3.jpg)",
+            }
+          }
+        />
+      </a>
+    </li>
+  </ul>
+</section>
+`;

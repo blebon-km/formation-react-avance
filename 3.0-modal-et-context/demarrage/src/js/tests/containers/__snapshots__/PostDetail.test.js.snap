@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostDetail should render correctly 1`] = `
+<section
+  className="post-detail is-loading"
+/>
+`;
+
+exports[`PostDetail should render correctly 2`] = `
+<section
+  className="post-detail "
+/>
+`;
+
+exports[`PostDetail should render correctly 3`] = `
+<section
+  className="post-detail "
+>
+  <div>
+    <div
+      className="picture-container"
+    >
+      <img
+        alt=""
+        src="http://localhost/uploads/pictures/picture.jpg"
+      />
+    </div>
+    <div
+      className="infos-container"
+    >
+      <time>
+        2018-11-28 17:21:01
+      </time>
+      <p
+        className="description"
+      >
+        My picture #cool
+      </p>
+    </div>
+  </div>
+</section>
+`;

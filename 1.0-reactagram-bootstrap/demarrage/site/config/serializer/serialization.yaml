@@ -1,0 +1,26 @@
+App\Entity\Post:
+    attributes:
+        id:
+          groups: ['read_post', 'list_post' ]
+        picture:
+          groups: ['read_post', 'list_post' ]
+        filter:
+          groups: ['read_post', 'list_post' ]
+        description:
+          groups: ['read_post' ]
+        createdAt:
+          groups: ['read_post', 'list_post' ]
+        comments:
+          groups: [ 'read_post' ]
+App\Entity\Comment:
+    attributes:
+      id:
+        groups: [ 'read_post', 'read_comment' ]
+      postId:
+        groups: [ 'write_comment' ]
+      content:
+        groups: [ 'read_post', 'read_comment', 'write_comment' ]
+      nickname:
+        groups: [ 'read_post', 'read_comment', 'write_comment' ]
+      createdAt:
+        groups: [ 'read_post', 'read_comment' ]

@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostDetail should render correctly 1`] = `
+<div
+  className="overlay"
+  onClick={[Function]}
+>
+  <div
+    className="modal-wrapper"
+  >
+    <section
+      className="post-detail is-loading"
+    />
+  </div>
+</div>
+`;
+
+exports[`PostDetail should render correctly 2`] = `
+<div
+  className="overlay"
+  onClick={[Function]}
+>
+  <div
+    className="modal-wrapper"
+  >
+    <section
+      className="post-detail "
+    />
+  </div>
+</div>
+`;
+
+exports[`PostDetail should render correctly 3`] = `
+<div
+  className="overlay"
+  onClick={[Function]}
+>
+  <div
+    className="modal-wrapper"
+  >
+    <section
+      className="post-detail "
+    >
+      <div>
+        <div
+          className="picture-container"
+        >
+          <img
+            alt=""
+            src="http://localhost/uploads/pictures/picture.jpg"
+          />
+        </div>
+        <div
+          className="infos-container"
+        >
+          <time>
+            2018-11-28 17:21:01
+          </time>
+          <p
+            className="description"
+          >
+            My picture #cool
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+`;
