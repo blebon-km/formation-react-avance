@@ -2,7 +2,7 @@
 
 ## Objectifs
 
-L'oobjectif de ce TP est de maximiser la robustesse de l'application en mettant en place un certain nombre de bonnes pratique comme le typage statique et les tests automatisés.
+L'objectif de ce TP est de maximiser la robustesse de l'application en mettant en place un certain nombre de bonnes pratique comme le typage statique et les tests automatisés.
 
 ## Préparatifs
 
