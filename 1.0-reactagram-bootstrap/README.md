@@ -124,10 +124,11 @@ _Dans ce TP l'ensemble du code se fera dans le dossier `src` du projet et donc l
     ```
 3. Dans le fichier `reducer/index.js` importer le reducer `posts.js` et l'ajouter dans le `combineReducers`
 4. Dans le fichier `containers/PostList.js`
-    1. Connecter le composant au store Redux
-    2. Faire appel à l'action `fetchPosts` lors du `componentDidMount`
-    3. Générer l'affichage des posts (Voir exemple de DOM plus bas)
-    4. Pour chaque post, créer un lien vers la page détail grâce au composant `Link` de `react-router-dom`
+    1. Importer le module `config`
+    2. Connecter le composant au store Redux
+    3. Faire appel à l'action `fetchPosts` lors du `componentDidMount`
+    4. Générer l'affichage des posts (Voir exemple de DOM plus bas) et pour l'URL des images utiliser le code suivant `config.picturesUrl + post.picture`
+    5. Pour chaque post, créer un lien vers la page détail grâce au composant `Link` de `react-router-dom`
 
 
 ### 5. Création de la PostDetail
@@ -149,10 +150,11 @@ _Dans ce TP l'ensemble du code se fera dans le dossier `src` du projet et donc l
     ```
 3. Dans le fichier `reducer/index.js` importer le reducer `post.js` et l'ajouter dans le `combineReducers`
 4. Dans le fichier `containers/PostDetail.js`
-    1. Connecter le composant au store Redux
-    2. Faire appel à l'action `fetchPosts` lors du `componentDidMount`
-    3. Générer l'affichage des posts (Voir exemple de DOM plus bas)
-    4. Pour chaque post, créer un lien vers la page détail grâce au composant `Link` de `react-router-dom`
+    1. Importer le module `config`
+    2. Connecter le composant au store Redux
+    3. Faire appel à l'action `fetchPost` lors du `componentDidMount`
+    4. Générer l'affichage des posts (Voir exemple de DOM plus bas) et pour l'URL des images, utiliser le code suivant `config.picturesUrl + post.picture`
+    5. Pour chaque post, créer un lien vers la page détail grâce au composant `Link` de `react-router-dom`
 
 ## Pour aller plus loin
 
