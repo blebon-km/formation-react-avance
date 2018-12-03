@@ -110,7 +110,7 @@ _Dans ce TP l'ensemble du code se fera dans le dossier `src` du projet et donc l
 1. Dans le fichier `actions/index.js`
     1. Importer le module config de la manière suivante `import config from 'config'`
     2. Créer et exporter 3 constantes correspondant aux 3 types d'actions suivant: `FETCH_POSTS_LOADING`, `FETCH_POSTS_COMPLETE`, `FETCH_POSTS_ERROR`
-    3. Créer et exporter un action creator `fetchPosts` faisant un un appel webservice via l'api `fetch` à l'url suivante `config.apiPath + '/posts'`
+    3. Créer et exporter un action creator `fetchPosts` faisant un un appel webservice via l'api `fetch` à l'url suivante `config.apiUrl + '/posts'`
     4. Lui faire dispatcher l'action `FETCH_POSTS_LOADING` avant l'appel au webservice
     5. Lui faire dispatcher l'action `FETCH_POSTS_COMPLETE` en cas de succès en fournissant en plus les données retournées par le webservice (ex: `{type: FETCH_POSTS_COMPLETE, posts: data }`)
     6. Lui faire dispatcher l'action `FETCH_POSTS_ERROR` en cas d'erreur en fournissant en plus les données retournées par le webservice (ex: `{type: FETCH_POSTS_COMPLETE, error: data }`)
@@ -136,7 +136,7 @@ _Dans ce TP l'ensemble du code se fera dans le dossier `src` du projet et donc l
 1. Dans le fichier `actions/index.js`
     1. Importer le module config de la manière suivante `import config from 'config'`
     2. Créer et exporter 3 constantes correspondant aux 3 types d'actions suivant: `FETCH_POST_LOADING`, `FETCH_POST_COMPLETE`, `FETCH_POST_ERROR`
-    3. Créer et exporter un action creator `fetchPost` prenant un paramètre `id` et  faisant un un appel webservice via l'api `fetch` à l'url suivante `config.apiPath + '/posts/' + id`
+    3. Créer et exporter un action creator `fetchPost` prenant un paramètre `id` et  faisant un un appel webservice via l'api `fetch` à l'url suivante `config.apiUrl + '/posts/' + id`
     4. Lui faire dispatcher l'action `FETCH_POST_LOADING` avant l'appel au webservice
     5. Lui faire dispatcher l'action `FETCH_POST_COMPLETE` en cas de succès en fournissant en plus les données retournées par le webservice (ex: `{type: FETCH_POST_COMPLETE, post: data }`)
     6. Lui faire dispatcher l'action `FETCH_POST_ERROR` en cas d'erreur en fournissant en plus les données retournées par le webservice (ex: `{type: FETCH_POST_COMPLETE, error: data }`)
