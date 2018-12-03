@@ -21,7 +21,8 @@ use App\Filter\HashtagFilter;
  * 			"get"={"method"="GET", "normalization_context"={"groups"={"list_post"}}}
  * 		},
  *	  	itemOperations={
- *	  		"get"={"method"="GET", "normalization_context"={"groups"={"read_post"}}}
+ *	  		"get"={"method"="GET", "normalization_context"={"groups"={"read_post"}}},
+ *	  		"delete"
  *	  	}
  * )
  * @ApiFilter(OrderFilter::class, properties={"createdAt": "DESC"}, arguments={"orderParameterName"="order"})

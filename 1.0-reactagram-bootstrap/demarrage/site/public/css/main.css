@@ -263,3 +263,31 @@ img {
 .post-form {
 	padding: 20px;
 }
+
+.post-list ul li {
+	transition: all 0.5s;
+}
+
+.post-appear-enter {
+  opacity: 0;
+  filter: blur(200px);
+  transform: scale(0.2);
+}
+
+.post-appear-enter-active {
+  opacity: 1;
+  filter: blur(0px);
+  transform: scale(1);
+}
+
+.post-appear-exit {
+  opacity: 1;
+  filter: blur(0px);
+  transform: scale(1);
+}
+
+.post-appear-exit-active {
+  opacity: 0;
+  filter: blur(200px);
+  transform: scale(0.2);
+}
