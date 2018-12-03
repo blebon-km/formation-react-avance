@@ -26,7 +26,7 @@ const defaultState:State = Map({
 export default function( state: State = defaultState, action: Action ):State {
     if ( action.type == FETCH_POST_LOADING )
     {
-        return state.set('isLoading', true);
+        return state.set('isLoading', true).set('data', null);
     }
     if ( action.type == FETCH_POST_COMPLETE )
     {
