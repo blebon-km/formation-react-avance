@@ -70,7 +70,7 @@ export class PostDetail extends React.Component<Props> {
                                     </form>
                                     <ul className="comment-list">
                                         {comments && comments.map( comment => (
-                                            <li key={comment.id}>
+                                            <li key={comment.get('id')}>
                                                 <p>
                                                     <strong>{comment.get('nickname')}</strong>{' '}
                                                     {comment.get('content')}

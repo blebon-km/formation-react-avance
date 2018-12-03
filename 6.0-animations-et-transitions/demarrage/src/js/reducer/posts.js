@@ -1,5 +1,5 @@
 // @flow
-
+import {RecordFactory, Record, RecordOf, List, fromJS} from 'immutable';
 import {
     FETCH_POSTS_ERROR,
     FETCH_POSTS_LOADING,
@@ -13,43 +13,49 @@ type Action = {
     data?: Array<Post>,
     error?: ?{}
 }
+// // Use RecordFactory<TProps> for defining new Record factory functions.
+// type PersonProps = { name: ?string, favoriteColor: string };
+// const makePerson: RecordFactory<PersonProps> = Record({ name: null, favoriteColor: 'unknown' });
 
-export type State = {
+// // Use RecordOf<T> for defining new instances of that Record.
+// type Person = RecordOf<PersonProps>;
+// const alan: Person = makePerson({ name: 'Alan' });
+
+
+export type State = RecordOf<{
     isLoading: boolean,
-    data: Array<Post>,
+    data: List<Post>,
     error: ?{}
-}
+}>
 
-const defaultState = {
+const defaultState = Record({
     isLoading: false,
-    data: [],
+    data: List([]),
     error: null
-}
+})();
 
-export default function( state:State = defaultState, action:Action ) {
+export default function( state:State = defaultState, action:Action ):State {
     if ( action.type == FETCH_POSTS_LOADING )
     {
-        return {
-            ...state,
-            isLoading: true,
-            error: null
-        }
+        return state.set('isLoading', true);
     }
     if ( action.type == FETCH_POSTS_COMPLETE )
     {
-        return {
+        return state.merge({
             isLoading: false,
             error: null,
-            data: action.data
-        }
+            data: fromJS(
+				action.data,
+				(key, value, path)=> path.length == 1  ? value.toObject() : value.toList()
+			)
+        });
     }
     if ( action.type == FETCH_POSTS_ERROR )
     {
-        return {
-            ...state,
+        return state.merge({
             isLoading: false,
-            error: action.error
-        }
+            error: fromJS(action.error)
+        });
     }
     return state;
 }
