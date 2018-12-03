@@ -19,7 +19,7 @@ L'objectif de ce TP est d'intégrer la librairie Immutable.JS dans le projet.
 ## Pour aller plus loin
 ### 1. Mettre à jour les informations de typage sur le reducer `post` et sur la vue `PostDetail`
 1. Dans le reducer `post`, remplacer le type State par `Map<string,any>` (il n'est pas possible avec un Map de spécifier une "shape", on se contente donc d'un "any")
-2. Dans la méthode `render()` du `PostDetail`, déclarer une const pour chaque `Map::get()` qui est fait. Cela permettra de contourner typer correctement les valeurs retournées par les `.get()` et donc de limpiter les erreurs lors du lancement de la commande `npm run check`
+2. Dans la méthode `render()` du `PostDetail`, déclarer une const pour chaque `Map::get()` qui est fait. Cela permettra de typer correctement les valeurs retournées par les `.get()` et donc de limiter les erreurs lors du lancement de la commande `npm run check`
 ### 2. Ajouter Immutable dans la page liste grâce aux Records
 1. Modifier le reducer `posts` en utilisant la fonction [`Record`](http://facebook.github.io/immutable-js/docs/#/Record) de Immutable.JS. `Record` a la particularité de permettre définir plus finement que le Map le typage du state.
 2. Constater qu'en principe aucun changement n'est nécessaire dans la méthode `render()` de la classe `PostList` grâce aux getters des Records.
