@@ -1,4 +1,5 @@
 //@flow
+import { Map, List, fromJS } from 'immutable';
 
 import {
     FETCH_POST_ERROR,
@@ -14,42 +15,34 @@ type Action = {
     error?: ?{}
 }
 
-export type State = {
-    isLoading: boolean,
-    data: ?Post,
-    error: ?{}
-}
+export type State = Map<string,any>;
 
-const defaultState:State = {
+const defaultState:State = Map({
     isLoading: false,
     data: null,
     error: null
-}
+});
 
-export default function( state: State = defaultState, action: Action ) {
+export default function( state: State = defaultState, action: Action ):State {
     if ( action.type == FETCH_POST_LOADING )
     {
-        return {
-            data: null,
-            isLoading: true,
-            error: null
-        }
+        return state.set('isLoading', true);
     }
     if ( action.type == FETCH_POST_COMPLETE )
     {
-        return {
+        return state.merge( {
             isLoading: false,
             error: null,
-            data: action.data
-        }
+            data: fromJS(action.data)
+        } );
     }
     if ( action.type == FETCH_POST_ERROR )
     {
-        return {
-            data: null,
+		return state.merge( {
+			data: null,
             isLoading: false,
             error: action.error
-        }
+		} );
     }
     return state;
 }

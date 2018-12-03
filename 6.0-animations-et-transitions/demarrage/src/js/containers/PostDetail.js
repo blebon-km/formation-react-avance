@@ -4,6 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 import { reduxForm, Field } from 'redux-form';
+import {Map,List} from 'immutable';
 import { fetchPost, addComment } from '../actions';
 import type { State as PostState } from '../reducer/post';
 import Modal from '../components/Modal';
@@ -24,20 +25,26 @@ export class PostDetail extends React.Component<Props> {
     static contextType = ConfigContext
 
     render() {
-        const { data, isLoading } = this.props.post;
-        return (
+		const data:?Map<string,any> = this.props.post.get('data'),
+			filter:?string = data ? data.get('filter') : null,
+			picture:?string = data ? data.get('picture') : null,
+			createdAt:?string = data ? data.get('createdAt') : null,
+			description:?string = data ? data.get('description') : null,
+			comments:?List<any> = data ? data.get('comments') : null,
+			isLoading:?boolean = this.props.post.get('isLoading');
+		return (
             <Modal onClick={() => { this.props.dispatch( push( '/' )) }}>
                 <section className={`post-detail ${isLoading ? "is-loading" : ""}`}>
                     {
                         data && (
                             <div>
                                 <div className="picture-container">
-                                    <img className={data.filter && `filter-${data.filter}`} src={this.context.picturesUrl + data.picture} alt="" />
+                                    <img className={ filter && `filter-${filter}` } src={this.context.picturesUrl + picture} alt="" />
                                 </div>
                                 <div className="infos-container">
-                                    <time>{(new Date(data.createdAt)).toLocaleString()}</time>
+                                    <time>{createdAt && new Date(createdAt).toLocaleString()}</time>
                                     <p className="description">
-                                        {data.description}
+                                        {description}
                                     </p>
                                     <form onSubmit={this.props.handleSubmit}>
                                         <div className="form-group">
@@ -50,7 +57,7 @@ export class PostDetail extends React.Component<Props> {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <Field 
+                                            <Field
                                                 component="textarea"
                                                 name="content"
                                                 className="form-control form-control-sm"
@@ -62,23 +69,23 @@ export class PostDetail extends React.Component<Props> {
                                         </div>
                                     </form>
                                     <ul className="comment-list">
-                                        {data.comments.map( comment => (
+                                        {comments && comments.map( comment => (
                                             <li key={comment.id}>
                                                 <p>
-                                                    <strong>{comment.nickname}</strong>{' '}
-                                                    {comment.content}
+                                                    <strong>{comment.get('nickname')}</strong>{' '}
+                                                    {comment.get('content')}
                                                 </p>
                                             </li>
                                         ) )}
                                     </ul>
-                                </div>
+								</div>
                             </div>
-                        )
+						)
                     }
-                </section>          
+                </section>
             </Modal>
         )
-        
+
     }
 
     fetchPost() {
