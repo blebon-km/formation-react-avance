@@ -19,12 +19,12 @@ L'objectif de ce TP et d'apprendre à manipuler le context de manière à pouvoi
 ### 2. Création de la modale
 
 1. Créer un fichier `src/js/components/Modal.js`
-2. Créer et exporter un composant `Modal` dont le contenu sera affiché dans la balise `div#modal-container` (Voir proposition de DOM)
+2. Créer et exporter un composant `Modal` dont le contenu (`this.props.children`) sera affiché dans la balise `div#modal-container` (Voir proposition de DOM)
 3. La modale acceptera une props `onClick` qui sera une fonction appelée lorsque l'utilisateur cliquera à l'extérieur de la modale
 
 ### 3. Utilisation de la modale
 
-1. Dans le fichier `src/js/index.js`, supprimer le composant `Switch` et retirer la props `exact` sur la `Route` affichant la `PostList`
+1. Dans le fichier `src/js/containers/App.js`, supprimer le composant `Switch` et retirer la props `exact` sur la `Route` affichant la `PostList`
 2. Dans le composant `PostDetail`
     1. Importer le composant `Modal`
     2. Englober l'ensemble du contenu de la méthode `render()` dans le composant `Modal`
