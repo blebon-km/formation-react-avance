@@ -64,6 +64,17 @@ L'objectif de ce TP est de maximiser la robustesse de l'application en mettant e
 
 _Certains composants utilisant le composant `Link` de `react-router`, il sera parfois nécessaire de les entourer du composant `MemoryRouter` pour être en mesure de les tester_
 
+Dans l'ensemble des tests il faut veiller à inclure le code suivant en tête de fichier afin de ne pas avoir d'erreurs liées au module `config`:
+```js
+jest.mock('config', () => {
+    return {
+        basePath: '/',
+        baseUrl: 'http://localhost/',
+        apiUrl: 'http://localhost/api/',
+        picturesUrl: 'http://localhost/uploads/pictures/',
+    };
+}, { virtual: true });
+```
 
 1. Dans le fichier `package.json` créer une commande `test` qui éxécute la commande `jest`
 2. Dans le dossier `tests`, créer les dossiers `components` et `containers`
