@@ -13,6 +13,7 @@ L'objectif de ce TP est de maximiser la robustesse de l'application en mettant e
     - `jest`
     - `react-test-renderer`
     - `regenerator-runtime`
+    - `flow-bin`
 - Dans le dossier `src` créer un dossier `flow-typed` et y créer un fichier `config.js.flow` avec le contenu suivant:
     ```js
     declare module 'config' {
