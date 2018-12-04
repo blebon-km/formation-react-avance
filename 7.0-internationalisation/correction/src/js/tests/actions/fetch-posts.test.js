@@ -1,0 +1,57 @@
+jest.mock('config', () => {
+    return {
+        basePath: '/',
+        baseUrl: 'http://localhost/',
+        apiUrl: 'http://localhost/api/',
+        picturesUrl: 'http://localhost/uploads/pictures/',
+    };
+}, { virtual: true });
+
+import {
+    fetchPosts,
+    FETCH_POSTS_LOADING,
+    FETCH_POSTS_COMPLETE,
+    FETCH_POSTS_ERROR,
+} from '../../actions';
+
+/**
+ * @see https://github.com/jefflau/jest-fetch-mock#installation-and-setup
+ * @see https://jestjs.io/docs/en/mock-functions
+ */
+describe('fetchPosts action creator', function () {
+    beforeEach(function () {
+        fetch.resetMocks()
+    })
+
+    it('should dispatch a FETCH_POSTS_LOADING action', function () {
+        fetch.mockResponse(JSON.stringify({ posts: [] }));
+        const dispatch = jest.fn(() => { });
+
+        fetchPosts()(dispatch);
+
+        expect(dispatch.mock.calls.length).toBeGreaterThanOrEqual(1);
+        expect(dispatch.mock.calls[0][0]).toEqual({ type: FETCH_POSTS_LOADING });
+    })
+
+    it('should dispatch a FETCH_POSTS_COMPLETE with the data returned by the webservice', function () {
+        const posts = [{ id: 42, picture: 'newpost.jpg', createdAt: '2018-11-28T16:21:01+00:00' }];
+        fetch.mockResponse(JSON.stringify(posts));
+        const dispatch = jest.fn(() => { });
+
+        return fetchPosts()(dispatch).then(() => {
+            expect(dispatch.mock.calls.length).toBe(2);
+            expect(dispatch.mock.calls[1][0]).toEqual({ type: FETCH_POSTS_COMPLETE, posts });
+        });
+    })
+
+    it('should dispatch a FETCH_POSTS_ERROR when an error occurs', function () {
+        const error = new Error('fake error message');
+        fetch.mockReject(error);
+        const dispatch = jest.fn(() => { });
+
+        fetchPosts()(dispatch).then(() => {
+            expect(dispatch.mock.calls.length).toBe(2);
+            expect(dispatch.mock.calls[1][0]).toEqual({ type: FETCH_POSTS_ERROR, error });
+        });
+    })
+})
