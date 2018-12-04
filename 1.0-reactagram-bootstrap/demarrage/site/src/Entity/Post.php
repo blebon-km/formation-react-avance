@@ -22,7 +22,7 @@ use App\Filter\HashtagFilter;
  * 		},
  *	  	itemOperations={
  *	  		"get"={"method"="GET", "normalization_context"={"groups"={"read_post"}}},
- *	  		"delete"
+ *	  		"delete"={"method"="DELETE"}
  *	  	}
  * )
  * @ApiFilter(OrderFilter::class, properties={"createdAt": "DESC"}, arguments={"orderParameterName"="order"})
