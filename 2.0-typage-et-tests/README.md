@@ -31,7 +31,7 @@ L'objectif de ce TP est de maximiser la robustesse de l'application en mettant e
 ### 1. Utilisation du typage static
 
 
-1. Dans le fichier `package.json` créer une commande `test` qui éxécute la commande `jest` 
+1. Dans le fichier `package.json` créer une commande `check` qui éxécute la commande `flow` 
 2. Initialiser un projet flow en lançant la commande `./node_modules/.bin/flow init`
 3. Dans le dossier `src/js` créer un dossier `flow`
 4. Dans ce dossier créer un fichier `types.js` et exporter deux types (voir: https://flow.org/en/docs/types/modules/)
@@ -39,10 +39,9 @@ L'objectif de ce TP est de maximiser la robustesse de l'application en mettant e
     ```js
     {
         id, // Nombre
-        picture, // Chaine de caractère
-        description, // Chaine de caractère, optionnelle
-        createdAt, // Chaine de caractère
-        comments, // Tableau de 'Comment' optionnelle
+        nickname, // Chaine de caractère
+        content, // Chaine de caractère
+        createdAt // Chaine de caractère
     }
     ```
     1. `Post` qui devra être la forme suivante:
@@ -64,10 +63,12 @@ L'objectif de ce TP est de maximiser la robustesse de l'application en mettant e
 
 _Certains composants utilisant le composant `Link` de `react-router`, il sera parfois nécessaire de les entourer du composant `MemoryRouter` pour être en mesure de les tester_
 
-1. Dans le dossier `tests`, créer les dossiers `components` et `containers`
-2. Dans le dossier `tests/components` créer un fichier `Menu.test.js` et y rédiger le test du `Menu` à l'aide des snapshots
-3. Dans le dossier `tests/containers` créer les fichier `PostList.test.js` et `PostDetail.js` et y rédiger respectivement les tests de la `PostList` et de la `PostDetail` grâce aux snapshots
-4. Veiller à bien tester les différents cas de figure (loading, complete, error)
+
+1. Dans le fichier `package.json` créer une commande `test` qui éxécute la commande `jest`
+2. Dans le dossier `tests`, créer les dossiers `components` et `containers`
+3. Dans le dossier `tests/components` créer un fichier `Menu.test.js` et y rédiger le test du `Menu` à l'aide des snapshots
+4. Dans le dossier `tests/containers` créer les fichier `PostList.test.js` et `PostDetail.js` et y rédiger respectivement les tests de la `PostList` et de la `PostDetail` grâce aux snapshots
+5. Veiller à bien tester les différents cas de figure (loading, complete, error)
 
 ### 3. Tests unitaires des reducers
 
