@@ -91,7 +91,7 @@ L'objectif de ce TP est de mettre en place un middleware permettant de centralis
        description // Description du post
    }
    ```
-   Il doit effectuer une requête `POST` en multipart vers l'URL `config.apiUrl + posts` en envoyant les données du post
+   Il doit effectuer une requête `POST` en multipart vers l'URL `config.apiUrl + 'posts/upload'` en envoyant les données du post
 6. Dans le composant `PostForm`, dispatcher l'action `addPost` lors de la soumission du formulaire
 7. Lorsque le post a bien été ajouté, déclencher une navigation vers la liste des posts.
 
