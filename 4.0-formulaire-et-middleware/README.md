@@ -54,30 +54,15 @@ L'objectif de ce TP est de mettre en place un middleware permettant de centralis
 4. Adapter les action creators existants de manière à leur faire utiliser le middleware
 5. Adapter les reducers au nouveau format d'action envoyées par le middleware
 
-### 3. Formulaire de commentaires
+### 3. Formulaire de création de posts
 
 1.  Modifier le fichier `src/js/reducer/index.js` de manière à ajouter le reducer de `redux-form`
-2.  Modifier le composant `PostDetail` de manière à afficher un formulaire d'ajout de commentaire en dessous de la description (Ne pas oublier de connecter le composant à `redux-form`) avec les champs suivants:
-    - `nickname`: Pseudo de l'auteur du commentaire
-    - `content`: Contenu du commentaire
-3.  Dans le fichier `actions` créer un nouvel action creator `addComment` prenant les paramètre suivants:
-    - `postId`: ID du post sur lequel ajouter le commentaire
-    - `nickname`: Pseudo de l'auteur
-    - `content`: Contenu du commentaire
-  Il génèrera une requête post vers l'URL `config.apiUrl + /comments` en envoyant les données du commentaires
-4. Dans le composant `PostDetail`, dispatcher l'action `addComment` lors de la soumission du formulaire
-5. Lorsque le commentaire à bien été soumis, faire appel à `fetchPost` afin de mettre à jour les données du post affiché par la `postDetail`
-6. Afficher la liste des commentaires du post sous le formulaire (Voir proposition de DOM)
-  
-
-### 4. Formulaire de création de posts
-
-1. Créer un fichier `src/js/containers/PostForm.js`
-2. Créer et exporter un composant `PostForm` affichant un formulaire de création de Post avec les champs suivants:
+2. Créer un fichier `src/js/containers/PostForm.js`
+3. Créer et exporter un composant `PostForm` affichant un formulaire de création de Post avec les champs suivants:
     - `pictureFile`: Image à uploader (input file)
     - `filter`: Filtre à appliquer à l'image (select)
     - `description`: Description du post (textarea)
-3. Pour le champ `pictureFile`, utiliser le composant suivant (code à inclure dans `PostForm`)
+4. Pour le champ `pictureFile`, utiliser le composant suivant (code à inclure dans `PostForm`)
    ```js
    
     // Permet de gérer les file input avec redux form
@@ -98,7 +83,7 @@ L'objectif de ce TP est de mettre en place un middleware permettant de centralis
         );
     }
    ```
-4. Dans le fichier `src/js/actions/index.js` ajouter un action creator `addPost` prenant un objet de la forme suivante:
+5. Dans le fichier `src/js/actions/index.js` ajouter un action creator `addPost` prenant un objet de la forme suivante:
    ```js
    {
        pictureFile, // Fichier à uploader
@@ -107,15 +92,31 @@ L'objectif de ce TP est de mettre en place un middleware permettant de centralis
    }
    ```
    Il doit effectuer une requête `POST` en multipart vers l'URL `config.apiUrl + /posts` en envoyant les données du post
-5. Dans le composant `PostForm`, dispatcher l'action `addPost` lors de la soumission du formulaire
-6. Lorsque le post a bien été ajouté, déclencher une navigation vers la liste des posts.
+6. Dans le composant `PostForm`, dispatcher l'action `addPost` lors de la soumission du formulaire
+7. Lorsque le post a bien été ajouté, déclencher une navigation vers la liste des posts.
 
 
 ## Pour aller plus loin
 
-1. Dans la `PostList` et la `PostDetail` appliquer aux images une classe CSS correspondant à la propriété `filter` du post 
-2. Veillez à bien définir le typage flow
-3. Mettre à jour les tests unitaires et fonctionnels
+### 1. Formulaire de commentaires
+
+1.  Modifier le composant `PostDetail` de manière à afficher un formulaire d'ajout de commentaire en dessous de la description (Ne pas oublier de connecter le composant à `redux-form`) avec les champs suivants:
+    - `nickname`: Pseudo de l'auteur du commentaire
+    - `content`: Contenu du commentaire
+2.  Dans le fichier `actions` créer un nouvel action creator `addComment` prenant les paramètre suivants:
+    - `postId`: ID du post sur lequel ajouter le commentaire
+    - `nickname`: Pseudo de l'auteur
+    - `content`: Contenu du commentaire
+  Il génèrera une requête post vers l'URL `config.apiUrl + /comments` en envoyant les données du commentaires
+3. Dans le composant `PostDetail`, dispatcher l'action `addComment` lors de la soumission du formulaire
+4. Lorsque le commentaire à bien été soumis, faire appel à `fetchPost` afin de mettre à jour les données du post affiché par la `postDetail`
+5. Afficher la liste des commentaires du post sous le formulaire (Voir proposition de DOM)
+6. Dans la `PostList` et la `PostDetail` appliquer aux images une classe CSS correspondant à la propriété `filter` du post 
+
+### 2. Bonnes pratiques
+
+1. Veiller à bien définir le typage flow
+2. Mettre à jour les tests unitaires et fonctionnels
 
 ## Propositions de DOM
 
