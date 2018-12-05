@@ -42,6 +42,6 @@ Mettre en place d'animations d'apparition de posts dans la liste des posts et d'
         )} />
     ```
     4. Dans le cas de la `PostDetail`
-        1. Modifier le `path` de la route de la manière suivante: `/posts/:id(\\d+)`
+        1. Modifier le `path` de la route de la manière suivante: `/posts/:id(\d+)`
         2. Lui transmette la variable `match` en props
 4. Afficher et masquer le composant `PostDetail` ou `PostForm` de manière à constater les animations d'apparition et de disparition
