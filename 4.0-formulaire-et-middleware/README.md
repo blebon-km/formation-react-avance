@@ -54,7 +54,7 @@ L'objectif de ce TP est de mettre en place un middleware permettant de centralis
 4. Adapter les action creators existants de manière à leur faire utiliser le middleware
 5. Adapter les reducers au nouveau format d'action envoyées par le middleware
 
-### 3. Formulaire de création de posts
+### 2. Formulaire de création de posts
 
 1.  Modifier le fichier `src/js/reducer/index.js` de manière à ajouter le reducer de `redux-form`
 2. Créer un fichier `src/js/containers/PostForm.js`
@@ -88,10 +88,10 @@ L'objectif de ce TP est de mettre en place un middleware permettant de centralis
    {
        pictureFile, // Fichier à uploader
        filter, // Filtre à appliquer
-       description //
+       description // Description du post
    }
    ```
-   Il doit effectuer une requête `POST` en multipart vers l'URL `config.apiUrl + /posts` en envoyant les données du post
+   Il doit effectuer une requête `POST` en multipart vers l'URL `config.apiUrl + posts` en envoyant les données du post
 6. Dans le composant `PostForm`, dispatcher l'action `addPost` lors de la soumission du formulaire
 7. Lorsque le post a bien été ajouté, déclencher une navigation vers la liste des posts.
 
