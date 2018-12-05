@@ -5,7 +5,7 @@ module.exports = {
 	entry: './js/index.js',
 	// Fichier de sortie
 	output: {
-		path: path.resolve(__dirname, '../../../1.0-reactagram-bootstrap/demarrage/site/public/js'),
+		path: path.resolve(__dirname, '../site/public/js'),
 		filename: 'app.bundle.js'
 	},
 	module: {
